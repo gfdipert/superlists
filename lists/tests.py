@@ -24,7 +24,8 @@ class HomePageTest(TestCase):
 		request = HttpRequest()
 		request.method = 'POST'
 		request.POST['item_text'] = 'A new list item'
-
+		#.method and .POST are special attributes of the HttpRequest
+		#request.POST is a dictionary-like object containing all given HTTP POST parameters
 		response = home_page(request)
 
 		self.assertIn('A new list item', response.content.decode())
